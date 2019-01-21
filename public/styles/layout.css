@@ -25,7 +25,39 @@ main {
   width: 450px;
   background-color: white;
   margin: auto;
-  margin-top: 140px;
+  padding-top: 140px;
+  padding-bottom: 50px;
+}
+
+.new-tweet {
+  background-color:#eee;
+  margin-left: 2em;
+  margin-right: 2em; 
+  border-radius: 10px;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-style: solid;
+  border-color: #dad9d9;
+  border-width: 2px;
+}
+
+.new-tweet h2 {
+  border-width: 0px 0px 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.new-tweet textarea {
+  width:100%;
+}
+
+.new-tweet input {
+  margin-bottom: 1em;
+}
+
+.counter {
+  float: right;
+  margin-top: 5px;
 }
 
 /*
