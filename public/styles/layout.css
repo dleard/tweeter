@@ -55,6 +55,78 @@ main {
   margin-bottom: 1em;
 }
 
+.tweets article {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 1em;
+  border-color: #aaa;
+}
+
+.tweets article header {
+  background-color: #eee;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: auto;
+  opacity: 0.6;
+}
+
+.tweets article:hover header {
+  opacity: 1;
+}
+
+.tweets article:hover footer i {
+  visibility: visible;
+}
+
+.tweets article:hover {
+  border-style: solid;
+  border-color: rgb(46, 46, 46)
+}
+
+.tweets article header img {
+  width: 70px;
+  float: left;
+  line-height: 0;
+  margin: 1em;
+}
+
+.tweets article header h2 {
+  float:left;
+}
+
+.tweets article header p {
+  float: right;
+  margin-right: 1em;
+}
+
+.tweets section p {
+  margin: 2em 1em 2em 1em;
+  font-size: 1.2rem;
+}
+
+.tweets footer {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color:#aaa;
+  overflow: auto;
+}
+
+.tweets footer p {
+  float: left;
+  margin: 1em;
+}
+
+.tweets footer i {
+  float: right;
+  margin-top: 1em;
+  margin-right: 5px;
+  color: rgb(24, 144, 184);
+  visibility: hidden;
+}
+
 .counter {
   float: right;
   margin-top: 5px;
