@@ -39,6 +39,7 @@ main {
   border-style: solid;
   border-color: #dad9d9;
   border-width: 2px;
+  display: none;
 }
 
 .new-tweet h2 {
