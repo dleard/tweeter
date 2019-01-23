@@ -102,6 +102,11 @@ main {
   margin-right: 1em;
 }
 
+.tweets section {
+  overflow:auto;
+  word-wrap: break-word;
+}
+
 .tweets section p {
   margin: 2em 1em 2em 1em;
   font-size: 1.2rem;
