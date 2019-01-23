@@ -137,6 +137,15 @@ $("form[method='POST'").on('submit', function(event) {
   }  
 });
 
+$("#compose").on('click', function() {
+  if ($(".new-tweet")[0].style.display === '') { 
+    $(".new-tweet")[0].style.display = 'block';
+    $("textarea[name='text'").focus();
+  }
+  else $(".new-tweet")[0].style.display = ''
+
+});
+
 loadTweets();
 
 });
