@@ -51,6 +51,9 @@ const data = [
   }
 ];
 
+data[0].created_at = Date.parse('22 Jan 2019 00:00:00 GMT');
+data[1].created_at = Date.parse('22 Oct 2018 00:00:00 GMT');
+
 $(function() {
   
   function renderTweets(tweets) {
