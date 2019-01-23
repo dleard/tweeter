@@ -48,6 +48,15 @@ main {
   border-style: solid;
 }
 
+.new-tweet h5 {
+  display: inline-block;
+  margin: auto;
+  color: red;
+  margin-left: 10em;
+  margin-top: .8em;
+  visibility: hidden;
+}
+
 .new-tweet textarea {
   width:100%;
 }

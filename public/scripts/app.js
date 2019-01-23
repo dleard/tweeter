@@ -119,13 +119,16 @@ $("form[method='POST'").on('submit', function(event) {
   const data = $(this).serialize();
   const input = $("textarea[name='text']").val();
   if (input.length === 0) {
-    alert('Your tweet is empty!');
-    return;
+    $(this).children('h5')[0].style.visibility = 'visible';
+    $(this).children('h5')[0].innerText = 'Your tweet is empty!';
   }
   else if (input.length > 140) {
-    alert('Your tweet is too looooong!');
-    return;
+    $(this).children('h5')[0].style.visibility = 'visible';
+    $(this).children('h5')[0].innerText = 'Your tweet is too long!';
+    
   } else {
+    $("textarea[name='text']")[0].value = '';
+    $(this).children('h5')[0].style.visibility = 'hidden';
     $.ajax({
       method: "POST",
       url: "/tweets",
