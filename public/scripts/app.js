@@ -68,6 +68,12 @@ $(function() {
     });
   }
 
+const validateMessageText = (msg) => {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(msg));
+  return div.innerHTML;
+}
+
 /**
  * Parses a single tweet object into an HTML element
  * @param {object} tweetObj - an object containing tweet information
@@ -76,7 +82,7 @@ $(function() {
 const createTweetElement = (tweetObj) => {
   const {name, handle} = tweetObj.user;
   const avatarURL = tweetObj.user.avatars.regular;
-  const {text} = tweetObj.content;
+  const text = validateMessageText(tweetObj.content.text);
   const differenceInDays = ((Date.now() - new Date(tweetObj.created_at)) / (1000 * 60 * 60 * 24));
   let tweetTime = `${Math.trunc(differenceInDays)} days ago`;
   
@@ -127,8 +133,6 @@ $("form[method='POST'").on('submit', function(event) {
     }).done(function() {
       $('.tweets').empty();
       loadTweets();
-      console.log('SUCCESS!');
-      console.log(data);
     });
   }  
 });
