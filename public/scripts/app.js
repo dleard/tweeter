@@ -64,7 +64,7 @@ $(function() {
   function renderTweets(tweets) {
     tweets.forEach(function(tweet) {
       const $tweet = createTweetElement(tweet);
-      $('.tweets').append($tweet);
+      $('.tweets').prepend($tweet);
     });
   }
 
@@ -101,5 +101,13 @@ const createTweetElement = (tweetObj) => {
   return tweet;
 }
 
-renderTweets(data);
+const loadTweets = () => {
+  $.ajax('/tweets', { method: 'GET' })
+  .then((tweets) => {
+    renderTweets(tweets);
+  });
+}
+
+loadTweets();
+
 });
