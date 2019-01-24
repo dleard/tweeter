@@ -116,10 +116,6 @@ $(function() {
   $("#compose").on('click', function() {
     $(".new-tweet").slideToggle();
     $("textarea[name='text'").focus();
-    // if ($(".new-tweet")[0].style.display === '') {
-    //   $(".new-tweet")[0].style.display = 'block';
-    //   $("textarea[name='text'").focus();
-    // } else { $(".new-tweet")[0].style.display = ''; }
   });
 
   loadTweets();
