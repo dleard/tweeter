@@ -1,0 +1,158 @@
+.new-tweet article, .new-tweet {
+  border-style: solid;
+  border-radius: 10px;
+}
+
+#nav-bar {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0 2em 0 2em;
+  background-color: #00a087;
+  color: #e8fdff;
+  z-index: 1;
+  overflow: auto;
+}
+#nav-bar button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  float: right;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  background-color: white;
+  width: 120px;
+  height: 50px;
+  border-radius: 10px;
+  color: #00a087;
+}
+#nav-bar button :hover {
+  color: black;
+  cursor: pointer;
+}
+#nav-bar button i {
+  margin-right: 10px;
+}
+#nav-bar .logo {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+#nav-bar .header {
+  font-size: 2rem;
+  float: left;
+  line-height: 2.5;
+  margin-left: 10px;
+}
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+main {
+  width: 450px;
+  background-color: white;
+  margin: auto;
+  padding-top: 140px;
+  padding-bottom: 50px;
+}
+
+.new-tweet {
+  background-color: #eee;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-color: #dad9d9;
+  border-width: 2px;
+  display: none;
+}
+.new-tweet h2 {
+  border-width: 0px 0px 1px;
+  border-color: black;
+  border-style: solid;
+}
+.new-tweet h5 {
+  display: inline-block;
+  margin: auto;
+  color: red;
+  margin-left: 10em;
+  margin-top: 0.8em;
+  visibility: hidden;
+}
+.new-tweet textarea {
+  width: 100%;
+}
+.new-tweet input {
+  margin-bottom: 1em;
+}
+.new-tweet article {
+  border-width: 1px;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 1em;
+  border-color: #aaa;
+}
+.new-tweet article header {
+  background-color: #eee;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: auto;
+  opacity: 0.6;
+}
+.new-tweet article header img {
+  width: 70px;
+  float: left;
+  line-height: 0;
+  margin: 1em;
+}
+.new-tweet article header h2 {
+  float: left;
+}
+.new-tweet article header p {
+  float: right;
+  margin: 1em;
+}
+.new-tweet article section p {
+  margin: 2em 1em 2em 1em;
+  font-size: 1.2rem;
+}
+.new-tweet footer {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: #aaa;
+  overflow: auto;
+}
+.new-tweet footer p {
+  float: left;
+  margin: 1em;
+}
+.new-tweet footer i {
+  float: right;
+  margin-top: 1em;
+  margin-right: 5px;
+  color: #1890b8;
+  visibility: hidden;
+}
+.new-tweet .counter {
+  float: right;
+  margin-top: 5px;
+}
+.new-tweet article:hover {
+  border-style: solid;
+  border-color: #2e2e2e;
+}
+.new-tweet article:hover header {
+  opacity: 1;
+}
+.new-tweet article:hover footer i {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=all_CSS_from_Sass.css.map */
