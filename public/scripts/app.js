@@ -58,6 +58,7 @@ $(function() {
     tweets.forEach(function(tweet) {
       const $tweet = createTweetElement(tweet);
       $('.tweets').prepend($tweet);
+      attachLikeListener();
     });
   }
 
@@ -119,5 +120,15 @@ $(function() {
   });
 
   loadTweets();
+
+  function attachLikeListener () {
+    $(".fa-heart").on('click', function() {
+    if ($(this)[0].style.color !== 'red') {
+      $(this)[0].style.color = 'red';
+    } else {
+      $(this)[0].style.color = '#1890B8';
+    }
+    });
+  }
 
 });
