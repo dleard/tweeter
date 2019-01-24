@@ -27,7 +27,7 @@ module.exports = function makeDataHelpers(db, path) {
       
         tweets.sort(sortNewestFirst);
         callback(null, tweets);
-        console.log('Tweets loaded. Mongo connection closed');
+        console.log('Tweets loaded');
       });
     }
   };

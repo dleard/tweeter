@@ -95,6 +95,7 @@ $(function() {
     // message ok -> submit
     } else {
       $("textarea[name='text']")[0].value = '';
+      $("textarea[name='text'").nextAll('.counter')[0].innerText = 140;
       $(this).children('h5')[0].style.visibility = 'hidden';
       $.ajax({
         method: "POST",
@@ -113,10 +114,12 @@ $(function() {
    * @param {function} callback
    */
   $("#compose").on('click', function() {
-    if ($(".new-tweet")[0].style.display === '') {
-      $(".new-tweet")[0].style.display = 'block';
-      $("textarea[name='text'").focus();
-    } else { $(".new-tweet")[0].style.display = ''; }
+    $(".new-tweet").slideToggle();
+    $("textarea[name='text'").focus();
+    // if ($(".new-tweet")[0].style.display === '') {
+    //   $(".new-tweet")[0].style.display = 'block';
+    //   $("textarea[name='text'").focus();
+    // } else { $(".new-tweet")[0].style.display = ''; }
   });
 
   loadTweets();
