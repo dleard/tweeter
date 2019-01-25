@@ -64,16 +64,18 @@ $(function() {
   function attachLikeListener () {
     $(".fa-heart").on('click', function() {
       const handle = $(this).parent().parent().find('header').find('p')[0].innerText;
-      if ($(this)[0].style.color !== 'red') {
-        this.dataset.likes++;
-        $("#likes")[0].innerText = this.dataset.likes;
-        changeLikes(this.dataset.likes, handle);
-        $(this)[0].style.color = 'red';
+      if ($(this).css("color") !== 'rgb(255, 0, 0)') {
+        const likes = $(this).data("likes") + 1;
+        $(this).data("likes", likes);
+        $(this).parent().find("#likes")[0].innerText = likes;
+        changeLikes(likes, handle);
+        $(this).css("color", "rgb(255, 0, 0)");
       } else {
-        this.dataset.likes--;
-        $("#likes")[0].innerText = this.dataset.likes;
-        changeLikes(this.dataset.likes, handle);
-        $(this)[0].style.color = '#1890B8';
+        const likes = $(this).data("likes") - 1;
+        $(this).data("likes", likes)
+        $(this).parent().find("#likes")[0].innerText = likes;
+        changeLikes(likes , handle);
+        $(this).css("color", "#1890B8");
       }
     });
   }
@@ -86,8 +88,8 @@ $(function() {
     tweets.forEach(function(tweet) {
       const $tweet = createTweetElement(tweet);
       $('.tweets').prepend($tweet);
-      attachLikeListener();
     });
+    attachLikeListener();
   }
 
   /**
