@@ -29,6 +29,12 @@ main {
   padding-bottom: 50px;
 }
 
+@media (max-width: 500px) {
+  main {
+    width: 80%;
+  }
+}
+
 .new-tweet {
   background-color:#eee;
   margin-left: 2em;
@@ -114,6 +120,14 @@ main {
 .tweets article header p {
   float: right;
   margin-right: 1em;
+}
+@media (max-width: 500px) {
+  .tweets article header h2 {
+    display: none;
+  }
+  .tweets article header {
+    opacity: 1
+}
 }
 
 .tweets section {

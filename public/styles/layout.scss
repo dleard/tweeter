@@ -31,6 +31,12 @@ main {
   padding-bottom: 50px;
 }
 
+@media (max-width: 500px) {
+  main {
+    width: 80%;
+  }
+}
+
 .new-tweet {
   @extend %rounded;
   background-color: $standardColor;
@@ -154,5 +160,13 @@ main {
     #likes {
       visibility: visible;
     }
+  }
+}
+@media (max-width: 500px) {
+  .tweets article header h2 {
+    display: none;
+  }
+  .tweets article header {
+    opacity: 1
   }
 }

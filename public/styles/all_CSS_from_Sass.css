@@ -71,6 +71,11 @@ main {
   padding-bottom: 50px;
 }
 
+@media (max-width: 500px) {
+  main {
+    width: 80%;
+  }
+}
 .new-tweet {
   background-color: #eee;
   margin-left: 2em;
@@ -169,6 +174,16 @@ main {
 }
 .tweets article:hover #likes {
   visibility: visible;
+}
+
+@media (max-width: 500px) {
+  .tweets article header h2 {
+    display: none;
+  }
+
+  .tweets article header {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=all_CSS_from_Sass.css.map */
