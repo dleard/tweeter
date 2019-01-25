@@ -91,6 +91,10 @@ main {
   visibility: visible;
 }
 
+.tweets article:hover #likes {
+  visibility: visible;
+}
+
 .tweets article:hover {
   border-style: solid;
   border-color: rgb(46, 46, 46)
@@ -145,6 +149,11 @@ main {
 .counter {
   float: right;
   margin-top: 5px;
+}
+
+#likes {
+  float:right;
+  visibility: hidden;
 }
 
 /*

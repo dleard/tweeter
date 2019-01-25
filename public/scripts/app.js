@@ -44,7 +44,8 @@ $(function() {
 
     const header = `<header> <img src = ${avatarURL}> <h2>${name}</h2> <p>${handle}</p></header>`;
     const section = `<section><p>${text}</p></section>`;
-    const footer = `<footer><p>${tweetTime}</p><i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i class="fas fa-heart"></i></footer>`;
+    const footer = `<footer><p>${tweetTime}</p><i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i 
+                    data-likes='0' class="fas fa-heart"></i><p id="likes">0</p></footer>`;
     const tweet = `<article>${header}${section}${footer}</article>`;
 
     return tweet;
@@ -121,12 +122,26 @@ $(function() {
 
   loadTweets();
 
+  // function changeLikes (likes) {
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "/tweets",
+  //     likes
+  //   }).done(function() {
+
+  //   })
+  // }
+
   function attachLikeListener () {
     $(".fa-heart").on('click', function() {
-    if ($(this)[0].style.color !== 'red') {
-      $(this)[0].style.color = 'red';
-    } else {
-      $(this)[0].style.color = '#1890B8';
+      if ($(this)[0].style.color !== 'red') {
+        this.dataset.likes++;
+        $("#likes")[0].innerText = this.dataset.likes;
+        $(this)[0].style.color = 'red';
+      } else {
+        this.dataset.likes--;
+        $("#likes")[0].innerText = this.dataset.likes;
+        $(this)[0].style.color = '#1890B8';
     }
     });
   }
