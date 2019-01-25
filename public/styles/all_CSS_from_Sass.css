@@ -1,6 +1,14 @@
-.new-tweet article, .new-tweet {
+.tweets article, .new-tweet {
   border-style: solid;
   border-radius: 10px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 #nav-bar {
@@ -29,12 +37,12 @@
   border-radius: 10px;
   color: #00a087;
 }
-#nav-bar button :hover {
-  color: black;
-  cursor: pointer;
-}
 #nav-bar button i {
   margin-right: 10px;
+}
+#nav-bar button:hover {
+  color: black;
+  cursor: pointer;
 }
 #nav-bar .logo {
   width: 80px;
@@ -92,66 +100,74 @@ main {
 .new-tweet input {
   margin-bottom: 1em;
 }
-.new-tweet article {
+
+.tweets article {
   border-width: 1px;
   margin-left: 2em;
   margin-right: 2em;
   margin-top: 1em;
   border-color: #aaa;
 }
-.new-tweet article header {
+.tweets article header {
   background-color: #eee;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: auto;
   opacity: 0.6;
 }
-.new-tweet article header img {
+.tweets article header img {
   width: 70px;
   float: left;
   line-height: 0;
   margin: 1em;
 }
-.new-tweet article header h2 {
+.tweets article header h2 {
   float: left;
 }
-.new-tweet article header p {
+.tweets article header p {
   float: right;
   margin: 1em;
 }
-.new-tweet article section p {
+.tweets article section p {
   margin: 2em 1em 2em 1em;
   font-size: 1.2rem;
 }
-.new-tweet footer {
+.tweets footer {
   border-top-style: solid;
   border-top-width: 1px;
   border-color: #aaa;
   overflow: auto;
 }
-.new-tweet footer p {
+.tweets footer p {
   float: left;
   margin: 1em;
 }
-.new-tweet footer i {
+.tweets footer i {
   float: right;
   margin-top: 1em;
   margin-right: 5px;
   color: #1890b8;
   visibility: hidden;
 }
-.new-tweet .counter {
+.tweets footer #likes {
+  float: right;
+  visibility: hidden;
+}
+.tweets .counter {
   float: right;
   margin-top: 5px;
 }
-.new-tweet article:hover {
+.tweets article:hover {
   border-style: solid;
   border-color: #2e2e2e;
 }
-.new-tweet article:hover header {
+.tweets article:hover header {
   opacity: 1;
 }
-.new-tweet article:hover footer i {
+.tweets article:hover footer i {
+  visibility: visible;
+}
+.tweets article:hover #likes {
   visibility: visible;
 }
 

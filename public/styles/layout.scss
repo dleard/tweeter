@@ -7,6 +7,13 @@ $darkerColor: #aaa;
   border-radius: 10px;
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 @import 'nav';
 
 body {
@@ -35,107 +42,117 @@ main {
   border-width: 2px;
   display: none;
     
-    h2 {
-      border-width: 0px 0px 1px;
-      border-color: black;
-      border-style: solid
+  h2 {
+    border-width: 0px 0px 1px;
+    border-color: black;
+    border-style: solid
+  }
+
+  h5 {
+    display: inline-block;
+    margin: auto;
+    color: red;
+    margin-left: 10em;
+    margin-top: .8em;
+    visibility: hidden;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  input {
+    margin-bottom: 1em;
+  }
+}
+
+.tweets {
+  article {
+    @extend %rounded;
+    border-width: 1px;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+    border-color: $darkerColor;
+    
+    header {
+      background-color: $standardColor;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      overflow: auto;
+      opacity: 0.6;
+      
+      img {
+        width: 70px;
+        float: left;
+        line-height: 0;
+        margin: 1em
+      }
+
+      h2 {
+        float: left;
+      }
+
+      p {
+        float: right;
+        margin: 1em;
+      }
     }
 
-    h5 {
-      display: inline-block;
-      margin: auto;
-      color: red;
-      margin-left: 10em;
-      margin-top: .8em;
+    section {
+      
+      p {
+        margin: 2em 1em 2em 1em;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  footer {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: $darkerColor;
+    overflow: auto;
+
+    p {
+      float: left;
+      margin: 1em;
+    }
+
+    i {
+      float: right;
+      margin-top: 1em;
+      margin-right: 5px;
+      color: rgb(24, 144 ,184);
       visibility: hidden;
     }
-
-    textarea {
-      width: 100%;
+    #likes {
+      float:right;
+      visibility: hidden;
     }
+  }
 
-    input {
-      margin-bottom: 1em;
-    }
+  .counter {
+    float: right;
+    margin-top: 5px;
+  }
 
-    article {
-      @extend %rounded;
-      border-width: 1px;
-      margin-left: 2em;
-      margin-right: 2em;
-      margin-top: 1em;
-      border-color: $darkerColor;
-      
-      header {
-        background-color: $standardColor;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        overflow: auto;
-        opacity: 0.6;
-        
-        img {
-          width: 70px;
-          float: left;
-          line-height: 0;
-          margin: 1em
-        }
+  article:hover {
+    border-style: solid;
+    border-color: rgb(46,46,46);
 
-        h2 {
-          float: left;
-        }
-
-        p {
-          float: right;
-          margin: 1em;
-        }
-      }
-
-      section {
-        
-        p {
-          margin: 2em 1em 2em 1em;
-          font-size: 1.2rem;
-        }
-      }
+    header {
+      opacity: 1;
     }
 
     footer {
-      border-top-style: solid;
-      border-top-width: 1px;
-      border-color: $darkerColor;
-      overflow: auto;
-
-      p {
-        float: left;
-        margin: 1em;
-      }
-
       i {
-        float: right;
-        margin-top: 1em;
-        margin-right: 5px;
-        color: rgb(24, 144 ,184);
-        visibility: hidden;
+        visibility: visible;
       }
     }
 
-    .counter {
-      float: right;
-      margin-top: 5px;
+    #likes {
+      visibility: visible;
     }
-
-    article:hover {
-      border-style: solid;
-      border-color: rgb(46,46,46);
-
-      header {
-        opacity: 1;
-      }
-
-      footer {
-        i {
-          visibility: visible;
-        }
-      }
-    }
+  }
 }
