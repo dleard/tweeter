@@ -29,6 +29,14 @@ module.exports = function makeDataHelpers(db, path) {
         callback(null, tweets);
         console.log('Tweets loaded');
       });
+    },
+
+    editTweet: function(data, callback) {
+      db.collection("tweets").updateOne({"user.handle" : Object.values(data)[1]}, {$set: {"likes" : Object.values(data)[0]}}, {upsert: false}, function (err, res) {
+        if (err) throw err;
+        callback(null, true);
+      });
+      console.log('likes updated');
     }
   };
 }
