@@ -52,6 +52,32 @@ $(function() {
     return tweet;
   };
 
+  function changeLikes (likes, handle) {
+    data = {likes, handle};
+    $.ajax({
+      method: "PUT",
+      url: "/tweets?_method=PUT",
+      data
+    });
+  }
+
+  function attachLikeListener () {
+    $(".fa-heart").on('click', function() {
+      const handle = $(this).parent().parent().find('header').find('p')[0].innerText;
+      if ($(this)[0].style.color !== 'red') {
+        this.dataset.likes++;
+        $("#likes")[0].innerText = this.dataset.likes;
+        changeLikes(this.dataset.likes, handle);
+        $(this)[0].style.color = 'red';
+      } else {
+        this.dataset.likes--;
+        $("#likes")[0].innerText = this.dataset.likes;
+        changeLikes(this.dataset.likes, handle);
+        $(this)[0].style.color = '#1890B8';
+      }
+    });
+  }
+
   /**
    * Iterates through all tweet objects, passes them to createTweetElement and appends all results to section '.tweets'
    * @param {tweets} tweets
@@ -122,31 +148,5 @@ $(function() {
   });
 
   loadTweets();
-
-  function changeLikes (likes, handle) {
-    data = {likes, handle};
-    $.ajax({
-      method: "PUT",
-      url: "/tweets?_method=PUT",
-      data
-    });
-  }
-
-  function attachLikeListener () {
-    $(".fa-heart").on('click', function() {
-      const handle = $(this).parent().parent().find('header').find('p')[0].innerText;
-      if ($(this)[0].style.color !== 'red') {
-        this.dataset.likes++;
-        $("#likes")[0].innerText = this.dataset.likes;
-        changeLikes(this.dataset.likes, handle);
-        $(this)[0].style.color = 'red';
-      } else {
-        this.dataset.likes--;
-        $("#likes")[0].innerText = this.dataset.likes;
-        changeLikes(this.dataset.likes, handle);
-        $(this)[0].style.color = '#1890B8';
-    }
-    });
-  }
 
 });
