@@ -32,7 +32,7 @@ module.exports = function makeDataHelpers(db, path) {
     },
 
     editTweet: function(data, callback) {
-      db.collection("tweets").updateOne({"user.handle" : Object.values(data)[1]}, {$set: {"likes" : Object.values(data)[0]}}, {upsert: false}, function (err, res) {
+      db.collection("tweets").updateOne({"uid" : Object.values(data)[1]}, {$set: {"likes" : Object.values(data)[0]}}, {upsert: false}, function (err, res) {
         if (err) throw err;
         callback(null, true);
       });

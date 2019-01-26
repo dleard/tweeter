@@ -28,6 +28,7 @@ $(function() {
     const text = validateMessageText(tweetObj.content.text);
     const differenceInDays = ((Date.now() - new Date(tweetObj.created_at)) / (1000 * 60 * 60 * 24));
     const {likes} = tweetObj;
+    const {uid} = tweetObj;
     let tweetTime = `${Math.trunc(differenceInDays)} days ago`;
     
     // Finds the date format to return based on number of days
@@ -46,14 +47,14 @@ $(function() {
     const header = `<header> <img src = ${avatarURL}> <h2>${name}</h2> <p>${handle}</p></header>`;
     const section = `<section><p>${text}</p></section>`;
     const footer = `<footer><p>${tweetTime}</p><i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i 
-                    data-likes=${likes} class="fas fa-heart"></i><p id="likes">${likes}</p></footer>`;
+                    data-likes=${likes} data-uid=${uid} class="fas fa-heart"></i><p id="likes">${likes}</p></footer>`;
     const tweet = `<article>${header}${section}${footer}</article>`;
 
     return tweet;
   };
 
-  function changeLikes (likes, handle) {
-    data = {likes, handle};
+  function changeLikes (likes, uid) {
+    data = {likes, uid};
     $.ajax({
       method: "PUT",
       url: "/tweets?_method=PUT",
@@ -63,18 +64,18 @@ $(function() {
 
   function attachLikeListener () {
     $(".fa-heart").on('click', function() {
-      const handle = $(this).parent().parent().find('header').find('p')[0].innerText;
+      const uid = $(this).data("uid");
       if ($(this).css("color") !== 'rgb(255, 0, 0)') {
         const likes = $(this).data("likes") + 1;
         $(this).data("likes", likes);
         $(this).parent().find("#likes")[0].innerText = likes;
-        changeLikes(likes, handle);
+        changeLikes(likes, uid);
         $(this).css("color", "rgb(255, 0, 0)");
       } else {
         const likes = $(this).data("likes") - 1;
         $(this).data("likes", likes)
         $(this).parent().find("#likes")[0].innerText = likes;
-        changeLikes(likes , handle);
+        changeLikes(likes , uid);
         $(this).css("color", "#1890B8");
       }
     });

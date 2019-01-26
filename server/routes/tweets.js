@@ -7,6 +7,21 @@ const tweetsRoutes  = express.Router();
 
 tweetsRoutes.use(methodOverride('_method'));
 
+const generateRandomString  = () => {
+  let randomString = '';
+  for (let i = 0; i < 9; i++) {
+    const numbers = [];
+    
+    numbers.push(Math.floor(Math.random() * 10) + 1 + 47);
+    numbers.push(Math.floor(Math.random() * 26) + 1 + 64);
+    numbers.push(Math.floor(Math.random() * 26) + 1 + 96);
+    
+    const index = Math.floor(Math.random() * 3);
+    randomString += String.fromCharCode(numbers[index]);
+  }
+  return randomString;
+};
+
 module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/", function(req, res) {
@@ -27,6 +42,7 @@ module.exports = function(DataHelpers) {
 
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
+      uid: generateRandomString(),
       user: user,
       content: {
         text: req.body.text
