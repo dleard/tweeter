@@ -68,8 +68,21 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   });
 
   app.post("/login", function(req, res) {
-    
-    res.send(200, 'hello');
+    const { handle, password } = req.body;
+    let id = undefined;
+    for (let key in users) {
+      console.log(users[key].handle)
+      if (users[key].handle === handle && bcrypt.compareSync(password, users[key].password)) {
+        id = users[key].id;
+      }
+    }
+    console.log(id);
+    if (id === undefined) {
+      res.send(403, 'invalid login');
+    } else {
+      req.session.user_Id = id;
+      res.sendStatus(200, handle);
+    }
   });
 
   app.get("/register", function(req, res) {
@@ -98,7 +111,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
         users[id].handle = req.body.handle;
         users[id].password = bcrypt.hashSync(req.body.password, 10);
         console.log(users);
-        // req.session.user_Id = id;
+        req.session.user_Id = id;
         res.sendStatus(200);
       }
     // }
