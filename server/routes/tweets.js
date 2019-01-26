@@ -7,6 +7,9 @@ const tweetsRoutes  = express.Router();
 
 tweetsRoutes.use(methodOverride('_method'));
 
+/**
+ * generates a random string
+ */
 const generateRandomString  = () => {
   let randomString = '';
   for (let i = 0; i < 9; i++) {

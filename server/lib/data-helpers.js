@@ -30,7 +30,7 @@ module.exports = function makeDataHelpers(db, path) {
         console.log('Tweets loaded');
       });
     },
-
+    // Pushes likes changes to db
     editTweet: function(data, callback) {
       db.collection("tweets").updateOne({"uid" : Object.values(data)[1]}, {$set: {"likes" : Object.values(data)[0]}}, {upsert: false}, function (err, res) {
         if (err) throw err;

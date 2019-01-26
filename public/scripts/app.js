@@ -53,6 +53,11 @@ $(function() {
     return tweet;
   };
 
+  /**
+   * makes ajax request to change likes on db
+   * @param {number} likes 
+   * @param {string} uid 
+   */
   function changeLikes (likes, uid) {
     data = {likes, uid};
     $.ajax({
@@ -61,7 +66,9 @@ $(function() {
       data
     });
   }
-
+  /**
+   * attaches a listener to each tweet on the heart 'like' button
+   */
   function attachLikeListener () {
     $(".fa-heart").on('click', function() {
       const uid = $(this).data("uid");
@@ -73,9 +80,9 @@ $(function() {
         $(this).css("color", "rgb(255, 0, 0)");
       } else {
         const likes = $(this).data("likes") - 1;
-        $(this).data("likes", likes)
+        $(this).data("likes", likes);
         $(this).parent().find("#likes")[0].innerText = likes;
-        changeLikes(likes , uid);
+        changeLikes(likes, uid);
         $(this).css("color", "#1890B8");
       }
     });
