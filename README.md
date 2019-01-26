@@ -4,6 +4,11 @@ Tweeter is a simple, single-page Twitter clone.
 
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
 
+## Heroku
+This app is running LIVE on heroku
+
+https://tranquil-fortress-85065.herokuapp.com/
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
@@ -12,7 +17,7 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Screenshots
-!["Screenshot of URLs Page: "](https://github.com/dleard/TinyApp/blob/master/docs/indexPage.png)
+!["Screenshot of URLs Page: "](https://github.com/dleard/tweeter/blob/master/docs/tweeter.png)
 
 ## Dependencies
 
