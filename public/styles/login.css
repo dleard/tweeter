@@ -35,5 +35,7 @@ main {
 }
 
 .container h5{
+  visibility: hidden;
   text-align: center;
+  color: red;
 }

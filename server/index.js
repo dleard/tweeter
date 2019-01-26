@@ -80,36 +80,27 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   app.post('/register', (req, res) => {
     const id = generateRandomString();
     console.log(req.body);
-    // const {email, pass} = req.body;
-    // // flag set to false for if a user email already exists in the db
-    // let existsFlag = 0;
-    // for (key in users) {
-    //   if (users[key].email === email) {
-    //     //set flag to true if email is found
-    //     existsFlag = 1;
-    //   }
-    // }
-    // // send user back to registration page with error message if email is invalid format
-    // if (!validateEmail(email)) {
-    //   req.registerError = 'invalid email format';
-    //   templateVars = {user: users[id], registerError: req.registerError};
-    //   res.render('register', templateVars);
-    // } else {
-    //   // send user back to registration page with error message if user email already exists
-    //   if (existsFlag) {
-    //     req.registerError = 'user email already exists';
-    //     let templateVars = {user: users[id], registerError: req.registerError};
-    //     res.render('register', templateVars);
-    //   } else {
-        //req.registerError = undefined;
-        // users[id] = {};
-        // users[id].id = id;
-        // users[id].email = email;
-        // users[id].password = bcrypt.hashSync(pass, 10);
-        
+    // flag set to false for if a user email already exists in the db
+    let existsFlag = 0;
+    for (let key in users) {
+      if (users[key].handle === req.body.handle) {
+        //set flag to true if email is found
+        existsFlag = 1;
+      }
+    }
+      // send user back to registration page with error message if user email already exists
+      if (existsFlag) {
+        res.send(403, 'user already exists');
+      } else {
+        users[id] = {};
+        users[id].id = id;
+        users[id].username = req.body.username;
+        users[id].handle = req.body.handle;
+        users[id].password = bcrypt.hashSync(req.body.password, 10);
+        console.log(users);
         // req.session.user_Id = id;
         res.sendStatus(200);
-      // }
+      }
     // }
   });
 
