@@ -8,11 +8,36 @@ const bodyParser    = require("body-parser");
 const app           = express();
 const {MongoClient} = require("mongodb");
 const MONGODB_URI   = process.env.MONGODB_URI;
+const cookieSession = require('cookie-session');
+const bcrypt = require('bcrypt');
 const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['Wubba lubba dub dub'],
 
+  maxAge: 24 * 60 * 60 * 1000
+}));
+
+const users = {};
+
+// generate strings for ID's
+const generateRandomString  = () => {
+  let randomString = '';
+  for (let i = 0; i < 6; i++) {
+    const numbers = [];
+    
+    numbers.push(Math.floor(Math.random() * 10) + 1 + 47);
+    numbers.push(Math.floor(Math.random() * 26) + 1 + 64);
+    numbers.push(Math.floor(Math.random() * 26) + 1 + 96);
+    
+    const index = Math.floor(Math.random() * 3);
+    randomString += String.fromCharCode(numbers[index]);
+  }
+  return randomString;
+};
 
 // The `data-helpers` module provides an interface to the database of tweets.
 // This simple interface layer has a big benefit: we could switch out the
@@ -50,6 +75,42 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   app.get("/register", function(req, res) {
     var loginpath = path.join(__dirname, '../public','register.html');
     res.sendFile(loginpath);
+  });
+
+  app.post('/register', (req, res) => {
+    const id = generateRandomString();
+    console.log(req.body);
+    // const {email, pass} = req.body;
+    // // flag set to false for if a user email already exists in the db
+    // let existsFlag = 0;
+    // for (key in users) {
+    //   if (users[key].email === email) {
+    //     //set flag to true if email is found
+    //     existsFlag = 1;
+    //   }
+    // }
+    // // send user back to registration page with error message if email is invalid format
+    // if (!validateEmail(email)) {
+    //   req.registerError = 'invalid email format';
+    //   templateVars = {user: users[id], registerError: req.registerError};
+    //   res.render('register', templateVars);
+    // } else {
+    //   // send user back to registration page with error message if user email already exists
+    //   if (existsFlag) {
+    //     req.registerError = 'user email already exists';
+    //     let templateVars = {user: users[id], registerError: req.registerError};
+    //     res.render('register', templateVars);
+    //   } else {
+        //req.registerError = undefined;
+        // users[id] = {};
+        // users[id].id = id;
+        // users[id].email = email;
+        // users[id].password = bcrypt.hashSync(pass, 10);
+        
+        // req.session.user_Id = id;
+        res.sendStatus(200);
+      // }
+    // }
   });
 
   app.listen(process.env.PORT || PORT, () => {
