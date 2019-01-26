@@ -151,4 +151,14 @@ $(function() {
 
   loadTweets();
 
+  $('#login').on('click', function(event) {
+    event.preventDefault();
+    window.location = '/login';
+  });
+
+  $('#register').on('click', function(event) {
+    event.preventDefault();
+    window.location = 'register';
+  })
+
 });

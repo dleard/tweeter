@@ -39,13 +39,16 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   app.get("/login", function(req, res) {
     var loginpath = path.join(__dirname, '../public','login.html');
-    console.log('loginpath: ' , loginpath);
     res.sendFile(loginpath);
+  });
+
+  app.post("/login", function(req, res) {
+    
+    res.send(200, 'hello');
   });
 
   app.get("/register", function(req, res) {
     var loginpath = path.join(__dirname, '../public','register.html');
-    console.log('loginpath: ' , loginpath);
     res.sendFile(loginpath);
   });
 
