@@ -21,7 +21,14 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000
 }));
 
-const users = {};
+const users = {
+  1: {
+    id: 1,
+    username: 'dylan',
+    handle: '@me',
+    password: '123'
+  }
+}
 
 // generate strings for ID's
 const generateRandomString  = () => {
@@ -75,13 +82,13 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       if (users[key].handle === handle && bcrypt.compareSync(password, users[key].password)) {
         id = users[key].id;
       }
-    }
+    }  
     console.log(id);
     if (id === undefined) {
       res.send(403, 'invalid login');
     } else {
       req.session.user_Id = id;
-      res.sendStatus(200, handle);
+      res.send(200, `${handle}`);
     }
   });
 

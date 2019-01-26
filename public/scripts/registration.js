@@ -10,7 +10,7 @@ $(() => {
       data
     }).done(function(data) {
         console.log(data);
-        window.location = "/";
+        window.location = "/?" + data;
 
     }).fail(function(data, textStatus, xhr) {
       //This shows status code eg. 403
