@@ -12,16 +12,12 @@
 
     <!-- Roboto condensed fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
-
     
-    <!-- Processed CSS with Sass-->
-    <link rel="stylesheet" href="/styles/all_CSS_from_Sass.css" type="text/css" />
-    
-     <!-- App CSS  -->
-    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+     
+    <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
-     <!-- Nav CSS  -->
-    <!-- <link rel="stylesheet" href="/styles/nav.css" type="text/css" /> -->
+     Nav CSS 
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -30,11 +26,8 @@
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/registration.js"></script>
   
-    <!-- Character counter JS-->
-    <script type="text/javascript" src="/scripts/compose-char-counter.js"></script>
-
   </head>
 
   <body>
@@ -43,25 +36,18 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png" width="80px" height="80px">
       <span class="header">Tweeter</span>
-      <button id="compose"><i class = "fa fa-edit"></i>Compose</button>
-      <a href="/login.html">login</a>
+      <button>Login</button>
+      <button>Register</button>
     </nav>
-
-    <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
+        <form id= 'login' method="POST" action="/login">
+          <textarea name="user" placeholder="username"></textarea>
+          <textarea name="password" placeholder="password"></textarea>
+          <div>
+            <input type="submit" value="login"></input>
+          </div>  
           <h5>error message</h5>
-          <span class="counter">140</span>
         </form>
-        
-      </section>
-      <section class="tweets">
-      </section>  
     </main>
-    
   </body>
-</html>
+</html>  

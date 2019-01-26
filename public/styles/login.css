@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+main {
+  width: 450px;
+  background-color: white;
+  margin: auto;
+  padding-top: 140px;
+  padding-bottom: 50px;
+}
+
+.container textarea {
+  margin:auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.container div {
+  text-align: center;
+}
+
+.container h5{
+  text-align: center;
+}

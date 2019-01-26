@@ -8,6 +8,7 @@ const bodyParser    = require("body-parser");
 const app           = express();
 const {MongoClient} = require("mongodb");
 const MONGODB_URI   = process.env.MONGODB_URI;
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -35,6 +36,18 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes);
+
+  app.get("/login", function(req, res) {
+    var loginpath = path.join(__dirname, '../public','login.html');
+    console.log('loginpath: ' , loginpath);
+    res.sendFile(loginpath);
+  });
+
+  app.get("/register", function(req, res) {
+    var loginpath = path.join(__dirname, '../public','register.html');
+    console.log('loginpath: ' , loginpath);
+    res.sendFile(loginpath);
+  });
 
   app.listen(process.env.PORT || PORT, () => {
     console.log("Tweeter app listening on port " + PORT);
